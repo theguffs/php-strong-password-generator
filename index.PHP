@@ -15,22 +15,13 @@
     </form>
 
     <?php
+    // includi functions
+    include 'functions.php';
+
     // verifica se è stata richiesta la generazione della password con isset
     if (isset($_GET['length'])) {
         $length = intval($_GET['length']);
         if ($length > 0) {
-            // funzione per generare la password
-            function generatePassword($length) {
-                $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
-                $password = '';
-                $charactersLength = strlen($characters);
-
-                for ($i = 0; $i < $length; $i++) {
-                    $password .= $characters[rand(0, $charactersLength - 1)];
-                }
-
-                return $password;
-            }
 
             // generazione password 
             $generatedPassword = generatePassword($length);
